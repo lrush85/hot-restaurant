@@ -68,9 +68,10 @@ var tables = [
 
       reservation.routeName = reservation.name.replace(/\s+/g,"").toLowerCase();
 
-          if(reservation.length <= 5) {
+          if(tables.length <= 5) {
             tables.push(reservation);
         } else {
+            console.warn("Sorry you're on the waiting list... ;(");
             waitlist.push(reservation);
         }
   
