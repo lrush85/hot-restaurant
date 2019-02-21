@@ -6,11 +6,10 @@
     <title>Tables Page</title>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 
 </head>
@@ -28,10 +27,9 @@
                 <br>
 
                 <div class="text-center">
-                    <a href="/make"><button type="button" class="btn btn-lg btn-danger"><span
-                                class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
-                    <a href="/"><button type="button" class="btn btn-lg btn-default"><span
-                                class="glyphicon glyphicon-home"></span></button></a>
+                    <a href="/make"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span>
+                            Make Reservation</button></a>
+                    <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
                 </div>
             </div>
 
@@ -62,8 +60,8 @@
             <footer class="footer">
                 <div class="container">
                     <p>Control Panel</p>
-                    <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a
-                            href="/api/waitlist">API Wait List</a></p>
+                    <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+                            Wait List</a></p>
                 </div>
             </footer>
 
@@ -112,7 +110,7 @@
 
             function waitListQuery() {
 
-        
+
                 // Url
                 var currentURL = window.location.origin;
 
@@ -120,18 +118,18 @@
                 $.ajax({ url: currentURL + "/api/waitlist", method: "GET" })
                     .done(function (waitlistData) {
 
-                       
-                        console.log("URL: " + currentURL + "/api/waitlist");
-                 
 
-                        
+                        console.log("URL: " + currentURL + "/api/waitlist");
+
+
+
                         console.log(waitlistData);
                         console.log("------------------------------------")
 
                         // waiting customers
                         for (var i = 0; i < waitlistData.length; i++) {
 
-                            
+
                             var waitlistSection = $("<div>");
                             waitlistSection.addClass('well');
                             waitlistSection.attr('id', 'waitlistWell-' + i + 1)
@@ -139,13 +137,13 @@
 
                             var tableNumber = i + 1;
 
-                            
+
                             $("#waitlistWell-" + i + 1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + waitlistData[i].customerID + "</h2>");
                         }
                     });
             }
 
-            
+
             function clearTable() {
 
                 var currentURL = window.location.origin;
@@ -163,7 +161,7 @@
 
 
             // Run Queries!
-           
+
             tableQuery();
             waitListQuery();
 
